@@ -64,18 +64,6 @@ estar nivelado** (ou a nuvem já corrigida para isso) antes da captura. A partir
 - Os valores de tolerância iniciais (10 mm de dimensão, 5 mm/m de desaprumo) são provisórios;
   defina os do projeto ou da norma aplicável.
 
-## Banco de dados e migração
-
-O esquema atual tem só as colunas usadas hoje (sem `mode`, sem `bim_file`). Ao abrir um banco
-criado por uma versão anterior do protótipo (que tinha os modos `best_fit`/`pose` e referência
-por BIM), `repo.init_db()`:
-- renomeia a coluna `bim` de `measurements` para `reference_value`, se necessário;
-- remove as colunas obsoletas `mode` e `bim_file` de `scans` via `ALTER TABLE ... DROP COLUMN`
-  (suportado a partir do SQLite 3.35); em um SQLite mais antigo, a remoção falha silenciosamente
-  e a coluna só deixa de ser usada, sem provocar erro.
-
-Nenhuma linha de `scans` ou `measurements` é apagada nessa migração — ver
-`test_db_migration_drops_mode_column_without_losing_rows`.
 
 ## Histórico e arquivos
 
