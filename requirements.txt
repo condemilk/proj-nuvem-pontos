@@ -1,0 +1,8 @@
+numpy>=1.26
+scipy>=1.11
+pandas>=2.0
+open3d>=0.18          # .pcd binário/.ply e filtros (opcional: há fallback em NumPy/SciPy)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+pytest>=8.0
